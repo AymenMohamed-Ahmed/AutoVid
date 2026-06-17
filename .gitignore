@@ -1,0 +1,7 @@
+.env
+sessions/
+assets/
+__pycache__/
+*.pyc
+.venv/
+.prefect/

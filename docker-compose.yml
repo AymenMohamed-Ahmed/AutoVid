@@ -1,0 +1,15 @@
+services:
+  prefect:
+    image: prefecthq/prefect:2-latest
+    command: prefect server start --host 0.0.0.0
+    ports: ["4200:4200"]
+  worker:
+    build: .
+    env_file: .env
+    depends_on: [prefect]
+    volumes:
+      - ./assets:/app/assets
+      - ./prompts:/app/prompts
+    environment:
+      PREFECT_API_URL: http://prefect:4200/api
+    shm_size: "2gb"

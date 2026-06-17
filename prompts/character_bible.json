@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "art_style": {
+    "base": "soft 3D Pixar-style render, rounded shapes, gentle rim lighting, no harsh shadows",
+    "render_quality": "high-detail, cinematic depth of field, child-friendly",
+    "negative": "no text, no watermark, no realistic gore, no scary faces, no fast strobing"
+  },
+  "color_palette": {
+    "primary": "#FFD54F",
+    "secondary": "#4FC3F7",
+    "accent": "#FF8A65",
+    "background": "#E8F5E9",
+    "note": "Keep these dominant in every shot for brand recognition."
+  },
+  "characters": {
+    "Mimi": {
+      "species": "fox cub",
+      "fur": "warm orange (#FF8A65) with cream chest and inner ears",
+      "eyes": "large round teal (#4FC3F7), highly expressive",
+      "outfit": "small yellow scarf (#FFD54F)",
+      "proportions": "big head, small body, toddler-like proportions",
+      "personality": "curious, kind, gently brave",
+      "voice": {
+        "en": "bright young female, slightly breathy, warm",
+        "fr": "voix enfantine claire et chaleureuse",
+        "es": "voz infantil brillante y cálida"
+      }
+    }
+  },
+  "consistency_rules": [
+    "Always describe the full character descriptor block in every Veo prompt.",
+    "Lock a single seed per character across an entire job.",
+    "Reference the same art_style.base string verbatim in every shot prompt.",
+    "Never let the camera show more than one new background element per scene."
+  ]
+}
