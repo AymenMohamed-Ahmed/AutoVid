@@ -1,7 +1,26 @@
-.env
-sessions/
-assets/
+# Media binaries - keep the repo light. Your raw clips, narration, and
+# finished videos live on disk but are not version-controlled.
+*.mp4
+*.wav
+*.mov
+*.mp3
+*.m4a
+
+# Intermediate concat masters produced by assemble.py
+_master_*.mp4
+
+# Keep the empty folder structure even though media is ignored
+!assets/**/.gitkeep
+
+# Python
 __pycache__/
 *.pyc
 .venv/
-.prefect/
+venv/
+
+# OS / editor cruft
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/

@@ -1,3 +1,14 @@
-prefect>=2.16,<3
-httpx>=0.27
-pydantic>=2.6
+# Subscription-only manual assembler - Python dependencies
+#
+# There are NONE. This project uses the Python STANDARD LIBRARY ONLY
+# (argparse, json, subprocess, pathlib, re, shutil, tempfile).
+# `pip install -r requirements.txt` is a no-op and is not required.
+#
+# The only external dependency is the free, local ffmpeg binary, which is
+# NOT a Python package. Install it separately (Windows):
+#
+#     winget install Gyan.FFmpeg
+#
+# then open a new terminal and confirm:  ffmpeg -version
+#
+# Python 3.8 or newer is recommended.

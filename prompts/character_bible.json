@@ -1,36 +1,52 @@
 {
   "version": "1.0",
+  "purpose": "Single source of truth for visual consistency. Paste the relevant blocks into every Google Flow / Veo prompt so every clip looks like the same show.",
+
   "art_style": {
-    "base": "soft 3D Pixar-style render, rounded shapes, gentle rim lighting, no harsh shadows",
-    "render_quality": "high-detail, cinematic depth of field, child-friendly",
-    "negative": "no text, no watermark, no realistic gore, no scary faces, no fast strobing"
+    "base": "soft 3D Pixar-style render, rounded shapes, gentle rim lighting, no harsh shadows, cinematic shallow depth of field, child-friendly and cozy",
+    "lighting": "warm soft key light, soft ambient fill, no hard contrast",
+    "mood": "wholesome, calm, joyful, gentle pacing",
+    "negative": "no on-screen text, no watermark, no logos, no realistic violence or gore, no scary or distorted faces, no fast strobing or flashing, no photorealistic humans"
   },
+
   "color_palette": {
     "primary": "#FFD54F",
     "secondary": "#4FC3F7",
     "accent": "#FF8A65",
     "background": "#E8F5E9",
-    "note": "Keep these dominant in every shot for brand recognition."
+    "note": "Keep these four colours dominant in every shot for instant brand recognition."
   },
+
   "characters": {
     "Mimi": {
+      "role": "main character / host",
       "species": "fox cub",
-      "fur": "warm orange (#FF8A65) with cream chest and inner ears",
-      "eyes": "large round teal (#4FC3F7), highly expressive",
-      "outfit": "small yellow scarf (#FFD54F)",
-      "proportions": "big head, small body, toddler-like proportions",
-      "personality": "curious, kind, gently brave",
+      "full_descriptor": "Mimi is a small, toddler-proportioned fox cub with a big round head and a little body. Her fur is warm orange (#FF8A65) with a soft cream chest and cream inner ears. She has large round expressive teal eyes (#4FC3F7), tiny rounded ears, a small black nose, and a fluffy orange tail with a cream tip. She wears a small bright-yellow scarf (#FFD54F). Soft 3D Pixar-style render, rounded shapes, gentle rim lighting. She looks curious, kind, and gently brave.",
+      "proportions": "oversized head, small rounded body, short limbs, toddler-like",
+      "personality": "curious, kind, gently brave, never frightened or aggressive",
       "voice": {
-        "en": "bright young female, slightly breathy, warm",
+        "en": "bright young female, warm, slightly breathy",
         "fr": "voix enfantine claire et chaleureuse",
-        "es": "voz infantil brillante y cálida"
+        "es": "voz infantil brillante y calida"
       }
     }
   },
-  "consistency_rules": [
-    "Always describe the full character descriptor block in every Veo prompt.",
-    "Lock a single seed per character across an entire job.",
-    "Reference the same art_style.base string verbatim in every shot prompt.",
-    "Never let the camera show more than one new background element per scene."
-  ]
+
+  "flow_tips": [
+    "Paste Mimi's FULL descriptor (characters.Mimi.full_descriptor) verbatim into EVERY single clip prompt - never abbreviate her to just 'the fox'. Consistency comes from repetition.",
+    "Reference the art_style.base string word-for-word in every prompt so the render style never drifts.",
+    "Lock ONE seed value for the entire job and reuse it on every clip. Pick it once (e.g. 12345) and never change it mid-job. Same seed + same descriptor = visually matching clips.",
+    "After your first clip comes out good, download it and reuse its first frame (or the clip itself) as the reference / start image for the next clips so Flow has a visual anchor.",
+    "Always paste the negative list (art_style.negative) to suppress text, watermarks, and scary content.",
+    "Introduce at most ONE new background element per scene; keep the palette colours dominant.",
+    "Visuals are language-agnostic - render each scene only ONCE. The same clip is reused for EN, FR, and ES; only the narration and burned-in subtitles change.",
+    "Keep each generated clip to a single scene/shot. assemble.py stitches the numbered clips together in order.",
+    "Flow Fast credits are limited (~50 clips/month on AI Pro), so plan your scene count first: a 4-scene short + an 8-scene long = 12 clips per job."
+  ],
+
+  "naming_convention": {
+    "short_clips": "short_1.mp4, short_2.mp4, short_3.mp4, short_4.mp4",
+    "long_clips": "long_1.mp4, long_2.mp4, ... long_8.mp4",
+    "drop_into": "assets/<job-id>/raw/"
+  }
 }
